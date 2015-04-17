@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :dogs, only:[:index, :show, :create]
   resources :cats
+  resources :sessions, only:[:create, :destroy]
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
