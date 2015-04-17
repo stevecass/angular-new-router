@@ -381,6 +381,7 @@ function initControllersStepFactory($controller, $componentLoader) {
       try {
         ctrl = $controller(controllerName, locals);
       } catch(e) {
+        console.log(e);
         console.warn && console.warn('Could not instantiate controller', controllerName);
         ctrl = $controller(angular.noop, locals);
       }
