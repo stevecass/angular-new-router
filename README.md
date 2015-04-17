@@ -6,6 +6,7 @@ Put
 * angular.js
 * angular-resource.js
 * router.es5.js 
+
 in vendor/assets/javascripts
 
 Add 
