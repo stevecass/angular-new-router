@@ -2,12 +2,10 @@
 
 ###Setup
 
-Put 
+In vendor/assets/javascripts, put files
 * angular.js
 * angular-resource.js
 * router.es5.js 
-
-in vendor/assets/javascripts
 
 Add 
 ```
