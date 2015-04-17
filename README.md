@@ -1,4 +1,4 @@
-##Angular with rails
+##Angular with rails - one way to work
 
 ###Setup
 
