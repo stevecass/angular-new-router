@@ -33,6 +33,14 @@ function AppController ($router) {
 controllers.js - controllers here (you could have >1 of these)
 services.js - declare services here
 
+Here's my example CatService:
+```
+angular.module('an-app').factory('CatService', function($resource) {
+  return $resource('/cats/:id'); // Note the full endpoint address
+});
+```
+
+
 As far as rails is concerned you have only one page - in our case it's the index action in HomeController
 
 In config/routes.rb put 
