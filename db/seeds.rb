@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 20.times do
-Cat.create(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, daily_sleep_hours:rand(13..22), img_url:'http://www.randomkittengenerator.com/images/cats/rotator.php')
+Cat.create(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, daily_sleep_hours:rand(13..22))
 Dog.create(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, special_trick:Faker::App.name)
 end
