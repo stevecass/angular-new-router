@@ -1,5 +1,5 @@
-angular.module('an-app', ['ngNewRouter'])
-  .controller('AppController', ['$router', AppController]);
+angular.module('an-app', ['ngNewRouter', 'ngResource']);
+angular.module('an-app').controller('AppController', ['$router', AppController]);
 
 function AppController ($router) {
   $router.config([

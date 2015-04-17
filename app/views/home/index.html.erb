@@ -1,6 +1,21 @@
 Rails just renders app/views/home/index.html.erb
+
+This is the standard nav that never changes
+<br><br><br>
+<% if current_user %>
+<% else %>
+  <%= form_tag '/sessions' do %>
+  Username: <%= text_field_tag :username %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag 'Log in' %>
+  <% end %>
+<% end %>
+
 <div ng-app="an-app" ng-controller="AppController as app">
   <div ng-viewport>
-    ddd
+    E.g. at #/ this gets replaced with content of
+    /components/home/home.html
+    and a HomeController is constructed  
   </div>
 </div>
+
