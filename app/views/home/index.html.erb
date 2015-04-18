@@ -1,7 +1,5 @@
 Rails just renders app/views/home/index.html.erb
-
-This is the standard nav that never changes
-<br><br><br>
+<br><br>
 <% if current_user %>
 <% else %>
   <%= form_tag '/sessions' do %>
@@ -11,11 +9,17 @@ This is the standard nav that never changes
   <% end %>
 <% end %>
 
-<div ng-app="an-app" ng-controller="AppController as app">
-  <div ng-viewport>
+<div id="app-div" ng-app="an-app" ng-controller="AppController as app">
+  Link with ng-link to the home route: <a ng-link="home">home</a>
+  <div id="viewport-div"  ng-viewport>
     E.g. at #/ this gets replaced with content of
     /components/home/home.html
     and a HomeController is constructed  
   </div>
 </div>
 
+<div><h3>Notes</h3>
+  <ul>
+    <li>Because you are using an angular router, the browser back/forward buttons work properly.</li>
+    <li>Angular is switching in and out the portion of the page with the white background. The browser page never changes.</li>
+</div>

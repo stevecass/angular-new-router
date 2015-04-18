@@ -1,10 +1,19 @@
-This is the template for the detail component.
+<p><b>This is the "detail" component.</b></p>
+This is the template for the detail component. When angular switches to an ngNewRouter route which refers to a component called "detail", Angular will by default request <b>/components/detail/detail.html</b> from the web server. It will also, try to construct a javascript <b>DetailController</b>.
 
-I will load /components/detail/detail.html 
-I will try to find a DetailController
+In the context of this app, the detail component (detail is just a name) will show the detail of one kitty. The DetailController (defined in app/assets/javascripts/controllers.js binds one cat to a variable called detail.cat. This is available in this template as "detail.cat")
 
-In the context of this app, I'll show one kitty.
+<div id="single-kitty-detail">
+  <h1>{{detail.cat.name}}</h1>
+    <div class="kitty-photo">
+      <img ng-src="{{detail.cat.img_url}}" alt="{{detail.cat.name}} photo">
+    </div>
+    <div class="kitty-details">
+       <table>
+         <tr><td class="label">Age</td><td>{{detail.cat.age}}</td></tr>
+         <tr><td class="label">Breed</td><td>{{detail.cat.breed}}</td></tr>
+         <tr><td class="label">Likes to sleep</td><td>{{detail.cat.daily_sleep_hours}} hours a day</td></tr>
+        </table>
+    </div>
 
-<div class="kitty-detail">
-  {{detail.cat}}
 </div>
