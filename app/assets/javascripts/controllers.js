@@ -3,7 +3,6 @@ angular.module('an-app')
     this.name = 'I am the home controller';
 
     CatService.query(function(data){
-      console.log(data);
       this.cats = data;
     }.bind(this));
 
