@@ -12,7 +12,7 @@ angular.module('an-app')
 angular.module('an-app')
   .controller('DetailController', ['$routeParams', 'CatService', function ($routeParams, CatService) {
 
-    CatService.get($routeParams.id, function(data){
+    CatService.get({id:$routeParams.id}, function(data){
       this.cat = data;
     }.bind(this));
 
