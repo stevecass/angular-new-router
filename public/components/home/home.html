@@ -4,7 +4,7 @@ This is the angular home.html component.
   <div class="kitty" ng-repeat="cat in home.cats">
     <h2>{{cat.name}}</h2>
     <div class="kitty-photo">
-      <img src="{{cat.img_url}}" alt="{{cat.name}} photo">
+      <img ng-src="{{cat.img_url}}" alt="{{cat.name}} photo">
     </div>
     <div class="kitty-details">
        <table>
