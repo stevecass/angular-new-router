@@ -15,7 +15,7 @@ This is a simple demo application that uses the new angularjs router [ngNewRoute
 * Create a "components" folder under public. Your angular templates will live in here, in folders named by component.
 * Implement your angular app module, services, controllers etc in the app/assets/javascripts folders. Use naming to control load order (require_tree goes alphabetically) or require each explicitly the manifest in place of require_tree
 
-###Setup
+###Longer version - setup
 
 In vendor/assets/javascripts, put files
 * angular.js
