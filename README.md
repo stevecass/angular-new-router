@@ -82,4 +82,10 @@ CatService.get({id:$routeParams.id}, function(data){
 }.bind(this));
 ```
 
+### To try this out
+* Clone repo
+* bundle install
+* bundle exec rails server
+* Point browser at http://localhost:3000
+
 
