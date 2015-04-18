@@ -1,4 +1,19 @@
+## Demo app using AngularJS talking to Rails
+This is a simple demo application that uses the new angularjs router [ngNewRouter](http://angular.github.io/router/getting-started) to configure client-side routes and components, and also uses [ngResource](https://docs.angularjs.org/api/ngResource/service/$resource) to talk to a simple rest-style API implemented in rails.
+
+### To try this out
+* Clone repo
+* bundle install
+* bundle exec rails server
+* Point browser at http://localhost:3000
+
+
 ##Angular with rails - one way to work
+
+###Short version
+* Put the angular files in vendor/assets/javascripts and require them from the application.js manifest file
+* Create a "components" folder under public. Your angular templates will live in here, in folders named by component.
+* Implement your angular app module, services, controllers etc in the app/assets/javascripts folders. Use naming to control load order (require_tree goes alphabetically) or require each explicitly the manifest in place of require_tree
 
 ###Setup
 
@@ -17,7 +32,11 @@ Add
 above ```require_tree .``` in application.js
 
 In app/assets/javascripts create
-app.js - declare your module here e.g.
+* app.js - declare your module here e.g.
+* controllers.js - controllers here (you could also declare controllers in multiple files of course.)
+* services.js - declare services here
+
+Example module with app controller for router configuration:
 ```
 angular.module('an-app', ['ngNewRouter', 'ngResource']);
 angular.module('an-app').controller('AppController', ['$router', AppController]);
@@ -30,10 +49,7 @@ function AppController ($router) {
 }
 ```
 
-controllers.js - controllers here (you could have >1 of these)
-services.js - declare services here
-
-Here's my example CatService:
+Example Service that talks to a REST-style api:
 ```
 angular.module('an-app').factory('CatService', function($resource) {
   return $resource('/cats/:id'); // Note the full endpoint address
@@ -46,7 +62,7 @@ As far as rails is concerned you have only one page - in our case it's the index
 In config/routes.rb put 
 ```root 'home#index'```
 
-In app/views/home/index.html.erb add
+In app/views/home/index.html.erb add the part of the page which will serve as the angular application. 
 ```
 <div ng-app="an-app" ng-controller="AppController as app">
   <div ng-viewport>
@@ -81,11 +97,3 @@ CatService.get({id:$routeParams.id}, function(data){
   this.cat = data;
 }.bind(this));
 ```
-
-### To try this out
-* Clone repo
-* bundle install
-* bundle exec rails server
-* Point browser at http://localhost:3000
-
-

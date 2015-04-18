@@ -1,5 +1,5 @@
 <p><b>This is the "detail" component.</b></p>
-This is the template for the detail component. When angular switches to an ngNewRouter route which refers to a component called "detail", Angular will by default request <b>/components/detail/detail.html</b> from the web server. It will also, try to construct a javascript <b>DetailController</b>.
+This is the template for the detail component. When angular switches to an ngNewRouter route which refers to a component called "detail", it will by default request <b>/components/detail/detail.html</b> from the web server. It will also, try to construct a javascript <b>DetailController</b>. These are defaults and you can override them. See the documentation on <a href="https://angular.github.io/router/configuration">configuring the router.</a>
 
 In the context of this app, the detail component (detail is just a name) will show the detail of one kitty. The DetailController (defined in app/assets/javascripts/controllers.js) binds one cat to a variable called detail.cat. This is available in this template as "detail.cat"
 
