@@ -9,11 +9,16 @@ In the context of this app, the detail component (detail is just a name) will sh
       <img ng-src="{{detail.cat.img_url}}" alt="{{detail.cat.name}} photo">
     </div>
     <div class="kitty-details">
-       <table>
-         <tr><td class="label">Age</td><td>{{detail.cat.age}}</td></tr>
-         <tr><td class="label">Breed</td><td>{{detail.cat.breed}}</td></tr>
-         <tr><td class="label">Likes to sleep</td><td>{{detail.cat.daily_sleep_hours}} hours a day</td></tr>
-        </table>
+      <form id="update-cat">
+        <ul>
+        <li><label for="name">Name</label> <input id="name" ng-model="detail.cat.name"></li>
+        <li><label for="img">Image</label> <input id="img" ng-model="detail.cat.img_url"></li>
+        <li><label for="age">Age</label> <input id="age" ng-model="detail.cat.age"></li>
+        <li><label for="breed">Breed</label> <input id="breed" ng-model="detail.cat.breed"></li>
+        <li><label for="sleep">Likes to sleep</label> <input id="sleep" ng-model="detail.cat.daily_sleep_hours"> hours a day</li>
+        <li><button ng-click="detail.saveKitty()">Save changes</button></li>
+        </ul>
+       </form>
     </div>
 
 </div>

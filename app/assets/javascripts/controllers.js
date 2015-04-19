@@ -15,6 +15,12 @@ angular.module('an-app')
       this.cat = data;
     }.bind(this));
 
+    this.saveKitty = function() {
+      CatService.update(this.cat), function(data) {
+        this.cat = data;
+      }
+    }
+
 }]);
 
 angular.module('an-app').controller('SampleController', [function(){

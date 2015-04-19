@@ -19,9 +19,19 @@ class CatsController < ApplicationController
     end
   end
 
+  def update
+    cat = Cat.find(params[:id])
+    cat.update(cat_params)
+    if (cat.save)
+      render json: cat, status: 200
+    else
+      render text: 'Failed', status: 422
+    end
+  end
+
   private
-  def weight_params
-    params.permit(:taken_on, :weight).merge(user_id: current_user.id)
+  def cat_params
+    params.permit(:name, :age, :img_url, :breed, :daily_sleep_hours)
   end
 
 end

@@ -28,3 +28,17 @@ div#viewport-div {
     font-weight: bolder;
   }
 }
+
+#update-cat {
+  label {
+    display: inline-block;
+    width:120px;
+  }
+  ul {
+    list-style-type: none;
+  }
+  input#img {
+    width: 360px;
+  }
+  
+}
