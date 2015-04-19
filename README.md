@@ -54,7 +54,7 @@ Example Service that talks to a REST-style api:
 /*
   The {id: '@id'} means use the id of the passed object to make the url.
   The extra update method is needed because gnResource by default provides only
-  .save which is a POST. Rails expects post for create and PUT/PATCH for update.
+  .save which is a POST. Rails expects POST for create and PUT/PATCH for update.
 */
 angular.module('an-app').factory('CatService', function($resource) {
   return $resource('/cats/:id', {id: '@id'},
