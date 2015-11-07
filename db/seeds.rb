@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 20.times do
-Cat.create(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, daily_sleep_hours:rand(13..22))
-Dog.create(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, special_trick:Faker::App.name)
-ActiveRecord::Base.connection.execute("update cats set img_url = 'http://104.236.236.54/cat_images/' || id || '.jpg' ")
-User.create(username:'steven', email:'steven@example.com', password:'123456')
+Cat.create!(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, daily_sleep_hours:rand(13..22))
+Dog.create!(name:Faker::Name.name, age:rand(1..8), breed:Faker::Lorem.word, special_trick:Faker::App.name)
+ActiveRecord::Base.connection.execute("update cats set img_url = '/images/' || id || '.jpg' ")
+User.create!(username:'username', email:'steven@example.com', password:'password')
 end
