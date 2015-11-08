@@ -1,4 +1,4 @@
-angular.module('an-app').controller('AppController', ['AuthService', '$router', function AppController (AuthService, $router) {
+angular.module('an-app').controller('AppController', ['AuthService', 'Session', '$router', function AppController (AuthService, Session, $router) {
   $router.config([
     {path: '/', component: 'home' },
     {path: '/sample', component: 'sample' },
@@ -7,9 +7,35 @@ angular.module('an-app').controller('AppController', ['AuthService', '$router', 
 
   AuthService.getCurrentUser()
   .then(function(response) {
-    this.rails_current_user = response.data;
+    this.rails_current_user = Session.userData;
   }.bind(this));
+
+  this.logout = function () {
+    AuthService.logout()
+    .then(function(){
+      this.rails_current_user = Session.userData;
+    }.bind(this));
+  };
+
+  this.loginform = {};
+
+  this.logUserIn = function() {
+    var credentials = {
+      username: this.loginform.username,
+      password: this.loginform.password
+    };
+    AuthService.login(credentials)
+    .then(function(){
+      if (Session.userData) {
+        this.rails_current_user = Session.userData;
+        this.loginform = {};
+      }
+    }.bind(this));
+  };
+
+
 }]);
+
 
 angular.module('an-app')
   .controller('HomeController', ['CatService', function (CatService) {
@@ -27,9 +53,9 @@ angular.module('an-app')
     }.bind(this));
 
     this.saveKitty = function() {
-      CatService.update(this.cat)
-      .then(function(data) {
+      CatService.update(this.cat, function(data){
         this.cat = data;
+        jQuery('#single-kitty-detail').fadeIn(50).fadeOut(50).fadeIn(50);
       }.bind(this));
     };
 

@@ -2,7 +2,14 @@ Rails just renders app/views/home/index.html.erb
 <br><br>
 <div id="app-div" ng-app="an-app" ng-controller="AppController as app">
 <div ng-show="app.rails_current_user">
-    Logged in as {{app.rails_current_user.username}}
+    Logged in as {{app.rails_current_user.username}}  <button ng-click="app.logout()">Log out</button>
+</div>
+<div ng-hide="app.rails_current_user">
+  <form>
+    Username: <input ng-model="app.loginform.username">
+    Password: <input type="password" ng-model="app.loginform.password">
+              <input type="submit" value="Log in" ng-click="app.logUserIn()">
+  </form>
 </div>
   Link with ng-link to the home route: <a ng-link="home">home</a>
   <div id="viewport-div"  ng-viewport>
